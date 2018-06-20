@@ -13,7 +13,8 @@ namespace WindowsFormsApp7
     public partial class StudentInfo : Form
     {
         public Student student;
-        public List<Tuple<DateTime, Int32>> Assessments = new List<Tuple<DateTime, int>>();
+        // public List<Tuple<DateTime, Int32>> Assessments = new List<Tuple<DateTime, int>>();
+        public List<Assessment> Assessments = new List<Assessment>();
         public StudentInfo()
         {
             InitializeComponent();
@@ -35,17 +36,16 @@ namespace WindowsFormsApp7
                 
                 labelStdName.Text = student.FIO;
 
-                labelStdLecturer.Text = student.Lecturer;
+                labelStdLecturer.Text = student.Lecturer.LNP;
                 Assessments = student.Assessments;
                 try
                 {
-                    labelAssessment.Text = Assessments.Find(x => x.Item1.Day == monthCalendar1.SelectionEnd.Day).Item2.ToString();
+                    labelAssessment.Text = Assessments.Find(x => x.Date.Day == monthCalendar1.SelectionEnd.Day).assessment.ToString();
 
                 }
                 catch (NullReferenceException)
                 {
                     labelAssessment.Text = "";
-
 
                 }
             }
@@ -55,14 +55,11 @@ namespace WindowsFormsApp7
         {
             try
             {
-                labelAssessment.Text = Assessments.Find(x => x.Item1.Day == monthCalendar1.SelectionEnd.Day).Item2.ToString();
-
+                labelAssessment.Text = Assessments.Find(x => x.Date.Day == monthCalendar1.SelectionEnd.Day).assessment.ToString();
             }
             catch (NullReferenceException)
             {
                 labelAssessment.Text = "";
-
-
             }
 
         }
@@ -71,14 +68,14 @@ namespace WindowsFormsApp7
         {
             try
             {
-                Assessments.Add(new Tuple<DateTime, int>(monthCalendar1.SelectionEnd, Convert.ToInt32(textBoxSetAssessment.Text)));
-                labelAssessment.Text = Assessments.Find(x => x.Item1.Day == monthCalendar1.SelectionEnd.Day).Item2.ToString();
+                int ass = Convert.ToInt32(textBoxSetAssessment.Text);
+                if (ass < 12&& ass > 0)
+                Assessments.Add(new Assessment(monthCalendar1.SelectionEnd, ass));
+                labelAssessment.Text = Assessments.Find(x => x.Date.Day == monthCalendar1.SelectionEnd.Day).assessment.ToString();
 
             }
             catch (System.FormatException)
-            {
-
-                
+            {            
             }
             this.DialogResult = DialogResult.OK;
             

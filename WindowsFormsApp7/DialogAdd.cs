@@ -12,20 +12,34 @@ namespace WindowsFormsApp7
 {
     public partial class DialogAdd : Form
     {
-        Student student;
-        List<string> Lecturers = new List<string>();
+        Student student=new Student();
+       // int selected;
+        public List<Lecturer> lecturers = new List<Lecturer>();
         public DialogAdd()
         {
             InitializeComponent();
-            student = new Student(null,null,null,DateTime.Now,null);
-            Lecturers.Add("Клепач В.В.");
-            Lecturers.Add("Хилько А.С.");
-            comboBoxLecturer.DataSource = Lecturers;
+            // student = new Student(null,null,null,DateTime.Now,null);
+            
+           
             //  comboBoxLecturer.DataSource
         }
         private void DialogAdd_Load(object sender, EventArgs e)
         {
 
+        }
+        public List<Lecturer> Lecturers
+        {
+            get
+            {
+                return lecturers;
+            }
+            set
+            {
+                lecturers = value;
+                comboBoxLecturer.DataSource = lecturers;
+
+                comboBoxLecturer.DisplayMember = "LNP";
+            }
         }
         public Student Student
         {
@@ -39,8 +53,12 @@ namespace WindowsFormsApp7
                 textBoxLastName.Text = student.LastName;
                 textBoxName.Text = student.Name;
                 textBoxPatronymic.Text = student.Patronymic;
+                textBoxNumber.Text = student.Number;
                 monthCalendar1.SelectionEnd = student.Date;
                 comboBoxLecturer.SelectedItem = student.Lecturer;
+                 
+
+             //   selected = comboBoxLecturer.SelectedIndex;
             }
         }
         private void buttonOK_Click(object sender, EventArgs e)
@@ -59,7 +77,27 @@ namespace WindowsFormsApp7
             }
             if (textBoxLastName.Text!="" && textBoxPatronymic.Text != "" && textBoxName.Text != "")
             {
-                student =new Student(textBoxName.Text, textBoxLastName.Text, textBoxPatronymic.Text, monthCalendar1.SelectionEnd,comboBoxLecturer.SelectedItem as string);
+                //student =new Student(textBoxName.Text, textBoxLastName.Text, textBoxPatronymic.Text, monthCalendar1.SelectionEnd,comboBoxLecturer.SelectedItem as string);
+                student.Name = textBoxName.Text;
+                student.LastName = textBoxLastName.Text;
+                student.Patronymic = textBoxPatronymic.Text;
+                student.Date = monthCalendar1.SelectionEnd;
+                student.Number = textBoxNumber.Text;
+              
+                if(student.Lecturer != comboBoxLecturer.SelectedItem as Lecturer)
+                {
+                    try
+                    {
+                        student.Lecturer.Students.Remove(student);
+                    }
+                    catch (Exception)
+                    {
+                    }
+                   
+                    student.Lecturer = comboBoxLecturer.SelectedItem as Lecturer;
+                    (comboBoxLecturer.SelectedItem as Lecturer).Students.Add(student);
+                }
+                
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }
@@ -72,7 +110,7 @@ namespace WindowsFormsApp7
 
         private void comboBoxLecturer_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+           
         }
 
         private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
@@ -81,38 +119,5 @@ namespace WindowsFormsApp7
         }
     }
 
-    public class Student
-    {
-        public string Name { get; set; }
-        public string LastName { get; set; }
-        public string Patronymic { get; set; }
-        public string Lecturer { get; set; }
-        public DateTime Date { get; set; }
-
-        public List<Tuple<DateTime, Int32>> Assessments=new List<Tuple<DateTime, int>>();
-        public void Init(Student st)
-        {
-            Name = st.Name;
-            LastName = st.LastName;
-        }
  
-        public String FIO
-        {
-            get { return LastName+" " +Name.First()+"."+Patronymic.First()+"."; }
-        }
-        //public String Lect
-        //{
-        //    get { return Lecturer; }
-        //}
-        public Student(string name, string lastName, string patronymic,DateTime date, string lecturer)
-        {
-            Name = name;
-            LastName = lastName;
-            Patronymic = patronymic;
-            Date = date;
-            Lecturer = lecturer;
-            
-        }
-        
-    }
 }

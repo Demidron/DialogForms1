@@ -39,6 +39,8 @@
             this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
             this.comboBoxLecturer = new System.Windows.Forms.ComboBox();
             this.labelLecturer = new System.Windows.Forms.Label();
+            this.textBoxNumber = new System.Windows.Forms.TextBox();
+            this.labelNumber = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // textBoxName
@@ -46,7 +48,7 @@
             this.textBoxName.Location = new System.Drawing.Point(93, 42);
             this.textBoxName.Name = "textBoxName";
             this.textBoxName.Size = new System.Drawing.Size(192, 22);
-            this.textBoxName.TabIndex = 0;
+            this.textBoxName.TabIndex = 1;
             // 
             // labelName
             // 
@@ -62,14 +64,14 @@
             this.textBoxLastName.Location = new System.Drawing.Point(93, 70);
             this.textBoxLastName.Name = "textBoxLastName";
             this.textBoxLastName.Size = new System.Drawing.Size(192, 22);
-            this.textBoxLastName.TabIndex = 3;
+            this.textBoxLastName.TabIndex = 2;
             // 
             // textBoxPatronymic
             // 
             this.textBoxPatronymic.Location = new System.Drawing.Point(93, 98);
             this.textBoxPatronymic.Name = "textBoxPatronymic";
             this.textBoxPatronymic.Size = new System.Drawing.Size(192, 22);
-            this.textBoxPatronymic.TabIndex = 4;
+            this.textBoxPatronymic.TabIndex = 3;
             // 
             // labelLastname
             // 
@@ -91,29 +93,29 @@
             // 
             // buttonOK
             // 
-            this.buttonOK.Location = new System.Drawing.Point(93, 351);
+            this.buttonOK.Location = new System.Drawing.Point(93, 379);
             this.buttonOK.Name = "buttonOK";
             this.buttonOK.Size = new System.Drawing.Size(75, 23);
-            this.buttonOK.TabIndex = 8;
+            this.buttonOK.TabIndex = 6;
             this.buttonOK.Text = "OK";
             this.buttonOK.UseVisualStyleBackColor = true;
             this.buttonOK.Click += new System.EventHandler(this.buttonOK_Click);
             // 
             // buttonCancel
             // 
-            this.buttonCancel.Location = new System.Drawing.Point(210, 351);
+            this.buttonCancel.Location = new System.Drawing.Point(210, 379);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(75, 23);
-            this.buttonCancel.TabIndex = 9;
+            this.buttonCancel.TabIndex = 7;
             this.buttonCancel.Text = "Cancel";
             this.buttonCancel.UseVisualStyleBackColor = true;
             this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
             // monthCalendar1
             // 
-            this.monthCalendar1.Location = new System.Drawing.Point(93, 132);
+            this.monthCalendar1.Location = new System.Drawing.Point(93, 160);
             this.monthCalendar1.Name = "monthCalendar1";
-            this.monthCalendar1.TabIndex = 7;
+            this.monthCalendar1.TabIndex = 5;
             this.monthCalendar1.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar1_DateChanged);
             // 
             // comboBoxLecturer
@@ -122,7 +124,7 @@
             this.comboBoxLecturer.Location = new System.Drawing.Point(93, 12);
             this.comboBoxLecturer.Name = "comboBoxLecturer";
             this.comboBoxLecturer.Size = new System.Drawing.Size(192, 24);
-            this.comboBoxLecturer.TabIndex = 10;
+            this.comboBoxLecturer.TabIndex = 0;
             this.comboBoxLecturer.SelectedIndexChanged += new System.EventHandler(this.comboBoxLecturer_SelectedIndexChanged);
             // 
             // labelLecturer
@@ -134,11 +136,29 @@
             this.labelLecturer.TabIndex = 11;
             this.labelLecturer.Text = "Lecturer";
             // 
+            // textBoxNumber
+            // 
+            this.textBoxNumber.Location = new System.Drawing.Point(93, 126);
+            this.textBoxNumber.Name = "textBoxNumber";
+            this.textBoxNumber.Size = new System.Drawing.Size(192, 22);
+            this.textBoxNumber.TabIndex = 4;
+            // 
+            // labelNumber
+            // 
+            this.labelNumber.AutoSize = true;
+            this.labelNumber.Location = new System.Drawing.Point(6, 131);
+            this.labelNumber.Name = "labelNumber";
+            this.labelNumber.Size = new System.Drawing.Size(58, 17);
+            this.labelNumber.TabIndex = 13;
+            this.labelNumber.Text = "Number";
+            // 
             // DialogAdd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(288, 383);
+            this.ClientSize = new System.Drawing.Size(288, 413);
+            this.Controls.Add(this.labelNumber);
+            this.Controls.Add(this.textBoxNumber);
             this.Controls.Add(this.labelLecturer);
             this.Controls.Add(this.comboBoxLecturer);
             this.Controls.Add(this.monthCalendar1);
@@ -171,5 +191,7 @@
         private System.Windows.Forms.MonthCalendar monthCalendar1;
         private System.Windows.Forms.ComboBox comboBoxLecturer;
         private System.Windows.Forms.Label labelLecturer;
+        private System.Windows.Forms.TextBox textBoxNumber;
+        private System.Windows.Forms.Label labelNumber;
     }
 }

@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.27703.2000
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsFormsApp7", "WindowsFormsApp7\WindowsFormsApp7.csproj", "{1DC5958F-B5BA-417D-B3CE-24D23F850759}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lib SMS", "SMSLib\Lib SMS.csproj", "{A8DF5834-A3AA-488E-8E2D-D689900E461D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{1DC5958F-B5BA-417D-B3CE-24D23F850759}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1DC5958F-B5BA-417D-B3CE-24D23F850759}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1DC5958F-B5BA-417D-B3CE-24D23F850759}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A8DF5834-A3AA-488E-8E2D-D689900E461D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A8DF5834-A3AA-488E-8E2D-D689900E461D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A8DF5834-A3AA-488E-8E2D-D689900E461D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A8DF5834-A3AA-488E-8E2D-D689900E461D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

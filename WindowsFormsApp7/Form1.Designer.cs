@@ -30,11 +30,15 @@
         {
             this.listBoxStudents = new System.Windows.Forms.ListBox();
             this.labelStudents = new System.Windows.Forms.Label();
-            this.buttonAdd = new System.Windows.Forms.Button();
+            this.buttonAddSt = new System.Windows.Forms.Button();
             this.buttonRemove = new System.Windows.Forms.Button();
             this.comboBoxLecturer = new System.Windows.Forms.ComboBox();
             this.buttonChange = new System.Windows.Forms.Button();
             this.labelLecturer = new System.Windows.Forms.Label();
+            this.buttonSMS = new System.Windows.Forms.Button();
+            this.buttonAddLect = new System.Windows.Forms.Button();
+            this.buttonXMLSave = new System.Windows.Forms.Button();
+            this.buttonXMLLoad = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listBoxStudents
@@ -57,19 +61,19 @@
             this.labelStudents.TabIndex = 1;
             this.labelStudents.Text = "Students";
             // 
-            // buttonAdd
+            // buttonAddSt
             // 
-            this.buttonAdd.Location = new System.Drawing.Point(335, 38);
-            this.buttonAdd.Name = "buttonAdd";
-            this.buttonAdd.Size = new System.Drawing.Size(75, 23);
-            this.buttonAdd.TabIndex = 2;
-            this.buttonAdd.Text = "Add";
-            this.buttonAdd.UseVisualStyleBackColor = true;
-            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
+            this.buttonAddSt.Location = new System.Drawing.Point(327, 96);
+            this.buttonAddSt.Name = "buttonAddSt";
+            this.buttonAddSt.Size = new System.Drawing.Size(98, 23);
+            this.buttonAddSt.TabIndex = 2;
+            this.buttonAddSt.Text = "Add Student";
+            this.buttonAddSt.UseVisualStyleBackColor = true;
+            this.buttonAddSt.Click += new System.EventHandler(this.buttonAddSt_Click);
             // 
             // buttonRemove
             // 
-            this.buttonRemove.Location = new System.Drawing.Point(335, 67);
+            this.buttonRemove.Location = new System.Drawing.Point(336, 125);
             this.buttonRemove.Name = "buttonRemove";
             this.buttonRemove.Size = new System.Drawing.Size(75, 23);
             this.buttonRemove.TabIndex = 3;
@@ -85,16 +89,17 @@
             this.comboBoxLecturer.Size = new System.Drawing.Size(188, 24);
             this.comboBoxLecturer.TabIndex = 4;
             this.comboBoxLecturer.SelectedIndexChanged += new System.EventHandler(this.comboBoxLecturer_SelectedIndexChanged);
+            this.comboBoxLecturer.SelectionChangeCommitted += new System.EventHandler(this.comboBoxLecturer_SelectionChangeCommitted);
             // 
             // buttonChange
             // 
-            this.buttonChange.Location = new System.Drawing.Point(336, 96);
+            this.buttonChange.Location = new System.Drawing.Point(336, 154);
             this.buttonChange.Name = "buttonChange";
             this.buttonChange.Size = new System.Drawing.Size(75, 23);
             this.buttonChange.TabIndex = 5;
             this.buttonChange.Text = "Change";
             this.buttonChange.UseVisualStyleBackColor = true;
-            this.buttonChange.Click += new System.EventHandler(this.buttonChange_Click);
+            this.buttonChange.Click += new System.EventHandler(this.ButtonChange_Click);
             // 
             // labelLecturer
             // 
@@ -105,16 +110,60 @@
             this.labelLecturer.TabIndex = 12;
             this.labelLecturer.Text = "Lecturer";
             // 
+            // buttonSMS
+            // 
+            this.buttonSMS.Location = new System.Drawing.Point(336, 183);
+            this.buttonSMS.Name = "buttonSMS";
+            this.buttonSMS.Size = new System.Drawing.Size(75, 23);
+            this.buttonSMS.TabIndex = 13;
+            this.buttonSMS.Text = "SMS";
+            this.buttonSMS.UseVisualStyleBackColor = true;
+            this.buttonSMS.Click += new System.EventHandler(this.buttonSMS_Click);
+            // 
+            // buttonAddLect
+            // 
+            this.buttonAddLect.Location = new System.Drawing.Point(209, 38);
+            this.buttonAddLect.Name = "buttonAddLect";
+            this.buttonAddLect.Size = new System.Drawing.Size(98, 23);
+            this.buttonAddLect.TabIndex = 14;
+            this.buttonAddLect.Text = "Add Lecturer";
+            this.buttonAddLect.UseVisualStyleBackColor = true;
+            this.buttonAddLect.Click += new System.EventHandler(this.buttonAddLect_Click);
+            // 
+            // buttonXMLSave
+            // 
+            this.buttonXMLSave.Location = new System.Drawing.Point(336, 212);
+            this.buttonXMLSave.Name = "buttonXMLSave";
+            this.buttonXMLSave.Size = new System.Drawing.Size(75, 46);
+            this.buttonXMLSave.TabIndex = 15;
+            this.buttonXMLSave.Text = "Save to XML";
+            this.buttonXMLSave.UseVisualStyleBackColor = true;
+            this.buttonXMLSave.Click += new System.EventHandler(this.buttonXMLSave_Click);
+            // 
+            // buttonXMLLoad
+            // 
+            this.buttonXMLLoad.Location = new System.Drawing.Point(327, 264);
+            this.buttonXMLLoad.Name = "buttonXMLLoad";
+            this.buttonXMLLoad.Size = new System.Drawing.Size(89, 46);
+            this.buttonXMLLoad.TabIndex = 16;
+            this.buttonXMLLoad.Text = "Load from XML Save";
+            this.buttonXMLLoad.UseVisualStyleBackColor = true;
+            this.buttonXMLLoad.Click += new System.EventHandler(this.buttonXMLLoad_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(423, 450);
+            this.Controls.Add(this.buttonXMLLoad);
+            this.Controls.Add(this.buttonXMLSave);
+            this.Controls.Add(this.buttonAddLect);
+            this.Controls.Add(this.buttonSMS);
             this.Controls.Add(this.labelLecturer);
             this.Controls.Add(this.buttonChange);
             this.Controls.Add(this.comboBoxLecturer);
             this.Controls.Add(this.buttonRemove);
-            this.Controls.Add(this.buttonAdd);
+            this.Controls.Add(this.buttonAddSt);
             this.Controls.Add(this.labelStudents);
             this.Controls.Add(this.listBoxStudents);
             this.Name = "Form1";
@@ -129,11 +178,15 @@
 
         private System.Windows.Forms.ListBox listBoxStudents;
         private System.Windows.Forms.Label labelStudents;
-        private System.Windows.Forms.Button buttonAdd;
+        private System.Windows.Forms.Button buttonAddSt;
         private System.Windows.Forms.Button buttonRemove;
         private System.Windows.Forms.ComboBox comboBoxLecturer;
         private System.Windows.Forms.Button buttonChange;
         private System.Windows.Forms.Label labelLecturer;
+        private System.Windows.Forms.Button buttonSMS;
+        private System.Windows.Forms.Button buttonAddLect;
+        private System.Windows.Forms.Button buttonXMLSave;
+        private System.Windows.Forms.Button buttonXMLLoad;
     }
 }
 
